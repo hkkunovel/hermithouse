@@ -703,7 +703,7 @@ ${cat}
 8. 답변 텍스트만 출력하세요. 제목이나 부가 설명 없이.`;
 
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('/api/reading', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({
@@ -769,7 +769,7 @@ ${cat}
 8. 답변 텍스트만 출력하세요.`;
 
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('/api/reading', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
@@ -985,3 +985,4 @@ ${cat}
     </div>
   </>);
 }
+
