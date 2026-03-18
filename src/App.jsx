@@ -800,6 +800,9 @@ ${cat}
 
   function formatAiMsg(text){
     if(!text) return null;
+    text = text.replace(/\*\*([^*]+)\*\*/g, '$1');
+    // 마크다운 볼드(**텍스트**) 제거
+    text = text.replace(/\*\*([^*]+)\*\*/g, '$1');
     const sentences = [];
     let buf = '';
     for(let i=0;i<text.length;i++){
@@ -974,7 +977,7 @@ ${cat}
               const cardLine=cards.map((c,i)=>['과거','현재','미래'][i]+' '+c.kr).join(' · ');
               const firstSentence=aiMsg.split(/[.!?]/)[0].trim();
               const text=`🔮 HERMIT HOUSE 타로 리딩\n\n${cardLine}\n\n"${firstSentence}."\n\n#타로 #타로리딩 #오늘의타로`;
-              const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://hermit.house')}`;
+              const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://hermithouse.vercel.app')}`;
               window.open(url,'_blank');
             }} style={{width:'100%',background:'transparent',border:'1px solid rgba(255,255,255,.12)',color:dark?'rgba(255,255,255,.6)':'rgba(40,40,40,.6)',fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.14em',padding:'11px',cursor:'pointer',borderRadius:6,transition:'all .3s',textTransform:'uppercase',fontWeight:300}}>𝕏  공유하기</button>}
             <button className="rs" onClick={reset} style={{width:'100%',background:'transparent',border:'1px solid rgba(226,184,78,.15)',color:gd,fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.16em',padding:'11px',cursor:'pointer',borderRadius:6,transition:'all .3s',textTransform:'uppercase',fontWeight:300}}>↩  새로운 질문</button>
@@ -985,4 +988,3 @@ ${cat}
     </div>
   </>);
 }
-
