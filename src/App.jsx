@@ -672,7 +672,8 @@ export default function App(){
     setTimeout(()=>setRevealed([true,true,false]),520);
     setTimeout(()=>setRevealed([true,true,true]),840);
     // GA4 이벤트 — 리딩 시작
-    if(window.gtag) window.gtag('event','reading_start',{category:r.cat});
+    const _kw=extractKeyword(question);
+    if(window.gtag) window.gtag('event','reading_start',{category:r.cat,keyword:_kw?.word||'없음',intent:_kw?.intent||'없음'});
     // 카드 등장 후 자동으로 AI 리딩 시작
     setTimeout(()=>_aiReadWithCards(d, r),1100);
   }
