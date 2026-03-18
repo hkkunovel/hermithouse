@@ -302,7 +302,7 @@ function getSynthesis(cards, cat='기타', question=''){
 
     // ── 3. 상황 키워드 ──
     if(personWord) return{type:'love_person',word:personWord};
-    if(t.includes('고백')) return{type:'love_action',word:;
+    if(t.includes('고백')) return{type:'love_action',word:'고백'};
     if(t.includes('이별')||t.includes('헤어')) return{type:'love_end',word:'이별'};
     if(t.includes('결혼')) return{type:'love_action',word:'결혼'};
     if(t.includes('재회')) return{type:'love_action',word:'재회'};
