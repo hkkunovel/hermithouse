@@ -671,6 +671,8 @@ export default function App(){
     setTimeout(()=>setRevealed([true,false,false]),200);
     setTimeout(()=>setRevealed([true,true,false]),520);
     setTimeout(()=>setRevealed([true,true,true]),840);
+    // GA4 이벤트 — 리딩 시작
+    if(window.gtag) window.gtag('event','reading_start',{category:r.cat});
     // 카드 등장 후 자동으로 AI 리딩 시작
     setTimeout(()=>_aiReadWithCards(d, r),1100);
   }
@@ -976,6 +978,7 @@ ${cat}
               const firstSentence=aiMsg.split(/[.!?]/)[0].trim();
               const text=`🔮 HERMIT HOUSE 타로 리딩\n\n"${firstSentence}."\n\n#타로 #타로리딩\nhttps://hermithouse.vercel.app`;
               const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+              if(window.gtag) window.gtag('event','share_x',{category:qInfo?.cat});
               window.open(url,'_blank');
             }} style={{width:'100%',background:'transparent',border:'1px solid rgba(255,255,255,.12)',color:dark?'rgba(255,255,255,.6)':'rgba(40,40,40,.6)',fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.14em',padding:'11px',cursor:'pointer',borderRadius:6,transition:'all .3s',textTransform:'uppercase',fontWeight:300}}>𝕏  공유하기</button>}
             <button className="rs" onClick={reset} style={{width:'100%',background:'transparent',border:'1px solid rgba(226,184,78,.15)',color:gd,fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.16em',padding:'11px',cursor:'pointer',borderRadius:6,transition:'all .3s',textTransform:'uppercase',fontWeight:300}}>↩  새로운 질문</button>
