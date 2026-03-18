@@ -272,53 +272,7 @@ function getSynthesis(cards, cat='기타', question=''){
 
   // 카테고리별 미래 테마 메시지
   // ── 질문에서 핵심 단어 추출 ──
-  const extractKeyword=(q)=>{
-    const t=q.trim();
-
-    // ── 1. 질문 의도 파악 (육하원칙) ──
-    // 우선순위: 의도 > 상대방 > 상황
-    const intent=
-      // 비교/양자택일을 가장 먼저 체크 (누구보다 우선)
-      /중에|vs|versus|둘 중|둘중|어느 쪽|어느쪽|누가 더|누가더|어떤 게 더|어떤게 더|더 나을|더나을|더 좋|더좋|비교/.test(t) ? 'compare' :
-      /언제|얼마나|기다|시기|타이밍|빨리|오래|soon|when/.test(t) ? 'when' :
-      /어떻게|어떻게 하|방법|어찌|어떡|how/.test(t) ? 'how' :
-      /왜|이유|원인|왜이렇게|why/.test(t) ? 'why' :
-      /누구|어떤 사람|어떤사람|어떤 남|어떤 여|who/.test(t) ? 'who' :
-      /될까|잘될|가능|성공할|합격할|사귈 수|사귀게|연락올|올까|받을 수|될 수 있/.test(t) ? 'possible' :
-      /해야|어떻게 해|어떡해|어찌해|조언|충고|advice/.test(t) ? 'advice' :
-      null;
-
-    // ── 2. 상대방 지칭 ──
-    const person=[['남자친구','남자친구'],['여자친구','여자친구'],['남친','남자친구'],['여친','여자친구'],
-      ['남편','남편'],['아내','아내'],['배우자','배우자'],['썸남','그 사람'],['썸녀','그 사람'],
-      ['걔','그 사람'],['쟤','그 사람'],['그 사람','그 사람'],['그사람','그 사람'],
-      ['그 남자','그 사람'],['그 여자','그 사람'],['오빠','그 사람'],['언니','그 사람'],
-      ['전남친','전 연인'],['전여친','전 연인'],['첫사랑','첫사랑'],['연인','연인']];
-    let personWord=null;
-    for(const[k,v] of person){ if(t.includes(k)){personWord=v;break;} }
-
-    // 의도가 있으면 의도 + 상대방 조합으로 반환
-    if(intent) return{type:'intent_'+intent, word:personWord||'상대방', intent};
-
-    // ── 3. 상황 키워드 ──
-    if(personWord) return{type:'love_person',word:personWord};
-    if(t.includes('고백')) return{type:'love_action',word:'고백'};
-    if(t.includes('이별')||t.includes('헤어')) return{type:'love_end',word:'이별'};
-    if(t.includes('결혼')) return{type:'love_action',word:'결혼'};
-    if(t.includes('재회')) return{type:'love_action',word:'재회'};
-    if(t.includes('짝사랑')) return{type:'love_one',word:'짝사랑'};
-    // 직업
-    if(t.includes('면접')) return{type:'work_event',word:'면접'};
-    if(t.includes('취업')) return{type:'work_goal',word:'취업'};
-    if(t.includes('이직')) return{type:'work_goal',word:'이직'};
-    if(t.includes('합격')) return{type:'work_goal',word:'합격'};
-    if(t.includes('수능')||t.includes('입시')) return{type:'work_exam',word:'수능'};
-    if(t.includes('시험')) return{type:'work_exam',word:'시험'};
-    if(t.includes('사업')||t.includes('창업')) return{type:'work_goal',word:'사업'};
-    if(t.includes('승진')) return{type:'work_goal',word:'승진'};
-    if(t.includes('공부')) return{type:'work_exam',word:'공부'};
-    return null;
-  };
+  // extractKeyword → 전역 함수로 이동
 
   // 의도별 오버라이드 메시지 (카테고리 무관, 가장 먼저 체크)
   const intentMsg=(kw, t2)=>{
@@ -622,6 +576,43 @@ function getSynthesis(cards, cat='기타', question=''){
 
 
 // ── 질문 분석 ──
+function extractKeyword(q){
+    const t=q.trim();
+    const intent=
+      /중에|vs|versus|둘 중|둘중|어느 쪽|어느쪽|누가 더|누가더|어떤 게 더|어떤게 더|더 나을|더나을|더 좋|더좋|비교/.test(t) ? 'compare' :
+      /언제|얼마나|기다|시기|타이밍|빨리|오래|soon|when/.test(t) ? 'when' :
+      /어떻게|어떻게 하|방법|어찌|어떡|how/.test(t) ? 'how' :
+      /왜|이유|원인|왜이렇게|why/.test(t) ? 'why' :
+      /누구|어떤 사람|어떤사람|어떤 남|어떤 여|who/.test(t) ? 'who' :
+      /될까|잘될|가능|성공할|합격할|사귈 수|사귀게|연락올|올까|받을 수|될 수 있/.test(t) ? 'possible' :
+      /해야|어떻게 해|어떡해|어찌해|조언|충고|advice/.test(t) ? 'advice' :
+      null;
+    const person=[['남자친구','남자친구'],['여자친구','여자친구'],['남친','남자친구'],['여친','여자친구'],
+      ['남편','남편'],['아내','아내'],['배우자','배우자'],['썸남','그 사람'],['썸녀','그 사람'],
+      ['걔','그 사람'],['쟤','그 사람'],['그 사람','그 사람'],['그사람','그 사람'],
+      ['그 남자','그 사람'],['그 여자','그 사람'],['오빠','그 사람'],['언니','그 사람'],
+      ['전남친','전 연인'],['전여친','전 연인'],['첫사랑','첫사랑'],['연인','연인']];
+    let personWord=null;
+    for(const[k,v] of person){ if(t.includes(k)){personWord=v;break;} }
+    if(intent) return{type:'intent_'+intent, word:personWord||'상대방', intent};
+    if(personWord) return{type:'love_person',word:personWord};
+    if(t.includes('고백')) return{type:'love_action',word:'고백'};
+    if(t.includes('이별')||t.includes('헤어')) return{type:'love_end',word:'이별'};
+    if(t.includes('결혼')) return{type:'love_action',word:'결혼'};
+    if(t.includes('재회')) return{type:'love_action',word:'재회'};
+    if(t.includes('짝사랑')) return{type:'love_one',word:'짝사랑'};
+    if(t.includes('면접')) return{type:'work_event',word:'면접'};
+    if(t.includes('취업')) return{type:'work_goal',word:'취업'};
+    if(t.includes('이직')) return{type:'work_goal',word:'이직'};
+    if(t.includes('합격')) return{type:'work_goal',word:'합격'};
+    if(t.includes('수능')||t.includes('입시')) return{type:'work_exam',word:'수능'};
+    if(t.includes('시험')) return{type:'work_exam',word:'시험'};
+    if(t.includes('사업')||t.includes('창업')) return{type:'work_goal',word:'사업'};
+    if(t.includes('승진')) return{type:'work_goal',word:'승진'};
+    if(t.includes('공부')) return{type:'work_exam',word:'공부'};
+    return null;
+}
+
 function analyzeQuestion(q){
   const t=q.trim();
   if(t.length<4) return{ok:false,reason:'너무 짧아요. 질문을 좀 더 적어주세요.'};
@@ -672,7 +663,8 @@ export default function App(){
     setTimeout(()=>setRevealed([true,true,false]),520);
     setTimeout(()=>setRevealed([true,true,true]),840);
     // GA4 이벤트 — 리딩 시작
-    if(window.gtag) window.gtag('event','reading_start',{category:r.cat});
+    const _kw=extractKeyword(question);
+    if(window.gtag) window.gtag('event','reading_start',{category:r.cat,keyword:_kw?.word||'없음',intent:_kw?.intent||'없음'});
     // 카드 등장 후 자동으로 AI 리딩 시작
     setTimeout(()=>_aiReadWithCards(d, r),1100);
   }
