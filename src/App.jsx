@@ -974,10 +974,9 @@ ${cat}
           <div style={{display:'flex',flexDirection:'column',gap:10,marginTop:28}}>
             {!extraCards.length&&<button onClick={drawExtra} disabled={extraLoading} style={{width:'100%',background:'rgba(226,184,78,.07)',border:'1px solid rgba(226,184,78,.28)',color:g,fontFamily:'"Outfit",sans-serif',fontSize:'.78rem',letterSpacing:'.1em',padding:'13px',cursor:extraLoading?'default':'pointer',borderRadius:6,transition:'all .3s',textTransform:'uppercase',fontWeight:400}}>✦  조언 듣기</button>}
             {aiMsg&&<button onClick={()=>{
-              const cardLine=cards.map((c,i)=>['과거','현재','미래'][i]+' '+c.kr).join(' · ');
               const firstSentence=aiMsg.split(/[.!?]/)[0].trim();
-              const text=`🔮 HERMIT HOUSE 타로 리딩\n\n${cardLine}\n\n"${firstSentence}."\n\n#타로 #타로리딩 #오늘의타로`;
-              const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://hermithouse.vercel.app')}`;
+              const text=`🔮 HERMIT HOUSE 타로 리딩\n\n"${firstSentence}."\n\n#타로 #타로리딩\nhttps://hermithouse.vercel.app`;
+              const url=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
               window.open(url,'_blank');
             }} style={{width:'100%',background:'transparent',border:'1px solid rgba(255,255,255,.12)',color:dark?'rgba(255,255,255,.6)':'rgba(40,40,40,.6)',fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.14em',padding:'11px',cursor:'pointer',borderRadius:6,transition:'all .3s',textTransform:'uppercase',fontWeight:300}}>𝕏  공유하기</button>}
             <button className="rs" onClick={reset} style={{width:'100%',background:'transparent',border:'1px solid rgba(226,184,78,.15)',color:gd,fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.16em',padding:'11px',cursor:'pointer',borderRadius:6,transition:'all .3s',textTransform:'uppercase',fontWeight:300}}>↩  새로운 질문</button>
