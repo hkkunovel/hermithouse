@@ -213,7 +213,7 @@ export default function App(){
             {cards.map((c,i)=>(
               <div key={i} style={{opacity:revealed[i]?1:0,transform:revealed[i]?'none':'translateY(22px)',transition:'opacity .6s ease,transform .6s ease'}}>
                 <div style={{fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.12em',color:gd,textAlign:'center',textTransform:'uppercase',marginBottom:7,fontWeight:400}}>{POS[i]}</div>
-                <div className="ch" style={{borderRadius:6,overflow:'hidden',boxShadow:'0 6px 24px rgba(0,0,0,.75)',transition:'transform .3s,box-shadow .3s',border:'1px solid rgba(226,184,78,.25)',aspectRatio:'2/3',background:dark?'#080808':'#f5f0eb'}}><div style={{width:'100%',height:'100%',filter:dark?'none':'invert(0.92) hue-rotate(180deg) saturate(1.15) brightness(1.03)'}}>{c.svg}</div></div>
+                <div className="ch" style={{borderRadius:6,overflow:'hidden',boxShadow:dark?'0 6px 24px rgba(0,0,0,.75)':'0 6px 16px rgba(90,70,45,.2)',transition:'transform .3s,box-shadow .3s',border:'1px solid rgba(226,184,78,.25)',aspectRatio:'2/3',background:dark?'#080808':'#f5f0eb'}}><div style={{width:'100%',height:'100%',filter:dark?'none':'invert(0.92) hue-rotate(180deg) saturate(1.15) brightness(1.03)'}}>{c.svg}</div></div>
                 <div style={{textAlign:'center',marginTop:8}}>
                   <div style={{fontFamily:'"Outfit",sans-serif',fontSize:'.72rem',color:g,letterSpacing:'.03em',marginBottom:2,fontWeight:500}}>{c.name}</div>
                   <div style={{fontFamily:'"Noto Sans KR",sans-serif',fontSize:'.78rem',color:iv,opacity:dark?.6:.75,fontWeight:300}}>{c.kr}</div>
@@ -228,7 +228,7 @@ export default function App(){
                 return(
                   <div key={`ex${i}`} style={{opacity:extraRevealed[i]?1:0,transform:extraRevealed[i]?'none':'translateY(22px)',transition:'opacity .6s ease,transform .6s ease'}}>
                     <div style={{fontFamily:'"Outfit",sans-serif',fontSize:'.75rem',letterSpacing:'.12em',color:cols[i],textAlign:'center',textTransform:'uppercase',marginBottom:7,fontWeight:400}}>{labels[i]}</div>
-                    <div className="ch" style={{borderRadius:6,overflow:'hidden',boxShadow:'0 6px 24px rgba(0,0,0,.75)',transition:'transform .3s,box-shadow .3s',border:`1px solid ${bords[i]}`,aspectRatio:'2/3',background:dark?'#080808':'#f5f0eb'}}><div style={{width:'100%',height:'100%',filter:dark?'none':'invert(0.92) hue-rotate(180deg) saturate(1.15) brightness(1.03)'}}>{c.svg}</div></div>
+                    <div className="ch" style={{borderRadius:6,overflow:'hidden',boxShadow:dark?'0 6px 24px rgba(0,0,0,.75)':'0 6px 16px rgba(90,70,45,.2)',transition:'transform .3s,box-shadow .3s',border:`1px solid ${bords[i]}`,aspectRatio:'2/3',background:dark?'#080808':'#f5f0eb'}}><div style={{width:'100%',height:'100%',filter:dark?'none':'invert(0.92) hue-rotate(180deg) saturate(1.15) brightness(1.03)'}}>{c.svg}</div></div>
                     <div style={{textAlign:'center',marginTop:8}}>
                       <div style={{fontFamily:'"Outfit",sans-serif',fontSize:'.72rem',color:cols[i],letterSpacing:'.03em',marginBottom:2,fontWeight:500}}>{c.name}</div>
                       <div style={{fontFamily:'"Noto Sans KR",sans-serif',fontSize:'.78rem',color:iv,opacity:dark?.6:.75,fontWeight:300}}>{c.kr}</div>
