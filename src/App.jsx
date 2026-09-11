@@ -49,7 +49,7 @@ export default function App(){
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({
-          model:'claude-sonnet-4-20250514',
+          model:'claude-sonnet-5',
           max_tokens:1000,
           messages:[{role:'user', content:prompt}]
         })
@@ -89,7 +89,7 @@ export default function App(){
       const res = await fetch('/api/reading', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+        body: JSON.stringify({model:'claude-sonnet-5',max_tokens:1000,messages:[{role:'user',content:prompt}]})
       });
       const data = await res.json();
       const text = data.content?.find(b=>b.type==='text')?.text;
