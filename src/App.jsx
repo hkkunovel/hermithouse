@@ -170,8 +170,8 @@ export default function App(){
               <path d="M64 52 Q74 44 80 36" fill="none" stroke={dark?'rgba(245,232,210,.65)':'rgba(80,50,10,.75)'} strokeWidth="1.6"/>
               <path d="M50 10 C40 10 33 20 33 32 C33 45 27 60 22 94 L78 94 C73 60 67 45 67 32 C67 20 60 10 50 10 Z" fill="none" stroke={dark?'rgba(245,232,210,.65)':'rgba(80,50,10,.75)'} strokeWidth="1.5"/>
               <path d="M39 27 Q50 37 61 27" fill="none" stroke={dark?'rgba(245,232,210,.5)':'rgba(80,50,10,.6)'} strokeWidth="1.1"/>
-              <line x1="30" y1="40" x2="22" y2="110" stroke={dark?'rgba(245,232,210,.55)':'rgba(80,50,10,.65)'} strokeWidth="1.6"/>
-              <path d="M30 36 L34 40 L30 44 L26 40 Z" fill="none" stroke={dark?'rgba(245,232,210,.5)':'rgba(80,50,10,.6)'} strokeWidth="1"/>
+              <line x1="24" y1="42" x2="19" y2="108" stroke={dark?'rgba(245,232,210,.55)':'rgba(80,50,10,.65)'} strokeWidth="1.6"/>
+              <path d="M24 36 L28 40 L24 44 L20 40 Z" fill="none" stroke={dark?'rgba(245,232,210,.5)':'rgba(80,50,10,.6)'} strokeWidth="1"/>
               <ellipse cx="50" cy="96" rx="32" ry="3" fill="none" stroke="rgba(226,184,78,.2)" strokeWidth=".8"/>
             </svg>
           </div>
