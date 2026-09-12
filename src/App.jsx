@@ -158,30 +158,21 @@ export default function App(){
         <header style={{textAlign:'center',marginBottom:52}}>
           <div style={{fontFamily:'"Outfit",sans-serif',fontSize:'clamp(1.8rem,5.5vw,3rem)',letterSpacing:'.45em',color:g,textShadow:'0 0 32px rgba(226,184,78,.35)',marginBottom:14,fontWeight:200}}>HERMIT HOUSE</div>
           <div style={{display:'flex',justifyContent:'center',marginBottom:20}}>
-            <svg viewBox="0 0 120 140" width="72" height="84" style={{opacity:.85}}>
-              <circle cx="92" cy="18" r="2.5" fill={g} opacity=".9"/>
-              <circle cx="82" cy="8" r="1.5" fill={g} opacity=".6"/>
-              <circle cx="100" cy="10" r="1.2" fill={g} opacity=".5"/>
-              <line x1="92" y1="12" x2="92" y2="14" stroke={g} strokeWidth="1" opacity=".7"/>
-              <line x1="86" y1="18" x2="88" y2="18" stroke={g} strokeWidth="1" opacity=".7"/>
-              <line x1="96" y1="18" x2="98" y2="18" stroke={g} strokeWidth="1" opacity=".7"/>
-              <line x1="92" y1="22" x2="92" y2="24" stroke={g} strokeWidth="1" opacity=".7"/>
-              <rect x="84" y="26" width="16" height="20" rx="2" fill="none" stroke={g} strokeWidth="1.2" opacity=".8"/>
-              <line x1="92" y1="20" x2="92" y2="26" stroke={g} strokeWidth="1.2" opacity=".7"/>
-              <line x1="86" y1="30" x2="100" y2="30" stroke={g} strokeWidth=".8" opacity=".5"/>
-              <line x1="86" y1="36" x2="100" y2="36" stroke={g} strokeWidth=".8" opacity=".5"/>
-              <circle cx="92" cy="33" r="3" fill={g} opacity=".5"/>
-              <path d="M52 28 Q52 18 62 16 Q72 14 76 22 Q80 30 74 36 L70 40 L54 40 Z" fill="none" stroke={dark?'rgba(245,232,210,.6)':'rgba(80,50,10,.7)'} strokeWidth="1.4"/>
-              <ellipse cx="64" cy="38" rx="10" ry="12" fill="none" stroke={dark?'rgba(245,232,210,.7)':'rgba(80,50,10,.8)'} strokeWidth="1.4"/>
-              <path d="M56 46 Q60 52 64 50 Q68 52 72 46" fill="none" stroke={dark?'rgba(245,232,210,.5)':'rgba(80,50,10,.6)'} strokeWidth="1"/>
-              <path d="M44 52 Q48 44 56 44 L72 44 Q80 44 84 52 L88 90 Q88 96 82 96 L46 96 Q40 96 40 90 Z" fill="none" stroke={dark?'rgba(245,232,210,.5)':'rgba(80,50,10,.6)'} strokeWidth="1.4"/>
-              <line x1="64" y1="44" x2="64" y2="96" stroke={dark?'rgba(245,232,210,.2)':'rgba(80,50,10,.28)'} strokeWidth=".8"/>
-              <path d="M80 56 Q86 50 88 42 Q90 36 88 30" fill="none" stroke={dark?'rgba(245,232,210,.45)':'rgba(80,50,10,.55)'} strokeWidth="1.4"/>
-              <line x1="38" y1="52" x2="30" y2="108" stroke={dark?'rgba(245,232,210,.55)':'rgba(80,50,10,.65)'} strokeWidth="1.8"/>
-              <path d="M30 108 L26 116 Q28 120 32 118 L36 112" fill="none" stroke={dark?'rgba(245,232,210,.4)':'rgba(80,50,10,.5)'} strokeWidth="1.2"/>
-              <ellipse cx="52" cy="100" rx="8" ry="3" fill="none" stroke={dark?'rgba(245,232,210,.3)':'rgba(80,50,10,.4)'} strokeWidth="1"/>
-              <ellipse cx="72" cy="102" rx="7" ry="3" fill="none" stroke={dark?'rgba(245,232,210,.3)':'rgba(80,50,10,.4)'} strokeWidth="1"/>
-              <path d="M20 118 Q64 112 108 118" fill="none" stroke="rgba(226,184,78,.2)" strokeWidth=".8"/>
+            <svg viewBox="0 0 100 120" width="66" height="80" style={{opacity:.9}}>
+              <circle cx="84" cy="10" r="1.4" fill={g} opacity=".7"/>
+              <circle cx="76" cy="5" r="1" fill={g} opacity=".5"/>
+              <circle cx="93" cy="7" r="1" fill={g} opacity=".45"/>
+              <line x1="84" y1="15" x2="84" y2="18" stroke={g} strokeWidth="1" opacity=".6"/>
+              <line x1="79" y1="24" x2="81" y2="24" stroke={g} strokeWidth="1" opacity=".6"/>
+              <line x1="87" y1="24" x2="89" y2="24" stroke={g} strokeWidth="1" opacity=".6"/>
+              <rect x="77" y="20" width="14" height="16" rx="3" fill="none" stroke={g} strokeWidth="1.2" opacity=".85"/>
+              <circle cx="84" cy="28" r="3" fill={g} opacity=".85"/>
+              <path d="M64 52 Q74 44 80 36" fill="none" stroke={dark?'rgba(245,232,210,.65)':'rgba(80,50,10,.75)'} strokeWidth="1.6"/>
+              <path d="M50 10 C40 10 33 20 33 32 C33 45 27 60 22 94 L78 94 C73 60 67 45 67 32 C67 20 60 10 50 10 Z" fill="none" stroke={dark?'rgba(245,232,210,.65)':'rgba(80,50,10,.75)'} strokeWidth="1.5"/>
+              <path d="M39 27 Q50 37 61 27" fill="none" stroke={dark?'rgba(245,232,210,.5)':'rgba(80,50,10,.6)'} strokeWidth="1.1"/>
+              <line x1="30" y1="40" x2="22" y2="110" stroke={dark?'rgba(245,232,210,.55)':'rgba(80,50,10,.65)'} strokeWidth="1.6"/>
+              <path d="M30 36 L34 40 L30 44 L26 40 Z" fill="none" stroke={dark?'rgba(245,232,210,.5)':'rgba(80,50,10,.6)'} strokeWidth="1"/>
+              <ellipse cx="50" cy="96" rx="32" ry="3" fill="none" stroke="rgba(226,184,78,.2)" strokeWidth=".8"/>
             </svg>
           </div>
           <div style={{display:'flex',alignItems:'center',gap:12,color:gd}}>
